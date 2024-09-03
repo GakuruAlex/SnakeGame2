@@ -12,8 +12,8 @@ class Snake:
         for coord in STARTING_COORD:
             turtle = Turtle()
             turtle.shape("square")
-            turtle.setheading(180)
             turtle.color("white")
+            turtle.speed(1)
             turtle.penup()
             turtle.goto(coord)
             self.snakes.append(turtle)
