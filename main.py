@@ -8,10 +8,11 @@ def main() -> None:
     screen.bgcolor("black")
     screen.title("Snake Game")
     game_is_on = True
-    
+
     while game_is_on:
         screen.tracer(1)
         snake.move_snake()
+        screen.listen()
     
     
     
