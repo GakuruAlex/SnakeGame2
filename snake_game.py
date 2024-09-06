@@ -52,3 +52,5 @@ class Snake:
         for snake in self.snakes[1:]:
             if self.head.distance(snake) < 10:
                 return True
+    def has_collided_with_walls(self):
+        return self.head.xcor() > 390 or self.head.xcor() < -390 or self.head.ycor() > 290 or self.head.ycor() < -290
