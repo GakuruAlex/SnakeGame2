@@ -11,9 +11,8 @@ def main() -> None:
     game_is_on = True
 
     while game_is_on:
-        sleep(1)
+        sleep(0.4)
         screen.update()
-        screen.tracer(0)
         snake.move_snake()
         screen.listen()
         screen.onkey(snake.move_up, "Up")
