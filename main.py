@@ -28,11 +28,12 @@ def main() -> None:
             scoreboard.increase_score()
             snake.add_tail()
         if snake.detect_collision_with_tail():
-            game_is_on = False
-            scoreboard.end_game()
+            snake.reset()
+            scoreboard.reset()
         if snake.has_collided_with_walls():
-            game_is_on = False
-            scoreboard.end_game()
+            snake.reset()
+            scoreboard.reset()
+            
 
 
     screen.exitonclick()

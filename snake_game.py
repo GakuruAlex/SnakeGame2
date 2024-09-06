@@ -54,3 +54,10 @@ class Snake:
                 return True
     def has_collided_with_walls(self):
         return self.head.xcor() > 390 or self.head.xcor() < -390 or self.head.ycor() > 290 or self.head.ycor() < -290
+    def reset(self):
+        for snake in self.snakes:
+            snake.hideturtle()
+        self.snakes.clear()
+        
+        self.make_snake()
+        self.head = self.snakes[0]
