@@ -1,4 +1,5 @@
 from turtle import Screen
+from time import sleep
 from snake_game import Snake
 def main() -> None:
     screen = Screen()
@@ -10,13 +11,15 @@ def main() -> None:
     game_is_on = True
 
     while game_is_on:
-        screen.tracer(1)
+        sleep(0.4)
+        screen.update()
         snake.move_snake()
         screen.listen()
-    
-    
-    
-    
+        screen.onkey(snake.move_up, "Up")
+        screen.onkey(snake.move_down,"Down")
+        screen.onkey(snake.move_left,"Left")
+        screen.onkey(snake.move_right, "Right")
+
     screen.exitonclick()
 
 
