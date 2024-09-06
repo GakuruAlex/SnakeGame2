@@ -17,7 +17,6 @@ def main() -> None:
     while game_is_on:
         sleep(0.2)
         screen.update()
-        
         snake.move_snake()
         screen.listen()
         screen.onkey(snake.move_up, "Up")
@@ -27,6 +26,11 @@ def main() -> None:
         if food.distance(snake.head) < 20:
             food.make_food()
             scoreboard.increase_score()
+            snake.add_tail()
+        if snake.detect_collision_with_tail():
+            game_is_on = False
+            scoreboard.end_game()
+            
 
     screen.exitonclick()
 
