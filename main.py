@@ -33,7 +33,7 @@ def main() -> None:
         if snake.has_collided_with_walls():
             game_is_on = False
             scoreboard.end_game()
-            
+
 
     screen.exitonclick()
 
