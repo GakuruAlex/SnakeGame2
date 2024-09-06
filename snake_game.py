@@ -15,8 +15,8 @@ class Snake:
     def snake(self, position):
             turtle = Turtle()
             turtle.setheading(180)
-            #turtle.shapesize(stretch_len=2, stretch_wid= 4)
             turtle.shape("square")
+            turtle.shapesize(stretch_len= 0.5, stretch_wid= 0.5)
             turtle.color("white")
             turtle.speed(1)
             turtle.penup()
@@ -32,11 +32,19 @@ class Snake:
             x_y_cor =  self.snakes[i-1].pos()
             self.snakes[i].goto(x_y_cor)
         self.head.forward(FORWARD)
+    def add_tail(self):
+        x_cor = self.snakes[-1].xcor()
+        y_cor = self.snakes[-1].ycor()
+        self.snake(x=x_cor, y= y_cor)
     def move_up(self):
+        if self.head.heading() != DOWN:
             self.head.setheading(UP)
     def move_down(self):
-        self.head.setheading(DOWN)
+        if self.head.heading()  != UP:
+            self.head.setheading(DOWN)
     def move_left(self):
-        self.head.setheading(LEFT)
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
     def move_right(self):
-        self.head.setheading(RIGHT)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
