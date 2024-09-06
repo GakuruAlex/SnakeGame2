@@ -35,7 +35,7 @@ class Snake:
     def add_tail(self):
         x_cor = self.snakes[-1].xcor()
         y_cor = self.snakes[-1].ycor()
-        self.snake(x=x_cor, y= y_cor)
+        self.snake((x_cor, y_cor))
     def move_up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
@@ -48,3 +48,7 @@ class Snake:
     def move_right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+    def detect_collision_with_tail(self):
+        for snake in self.snakes[1:]:
+            if self.head.distance(snake) < 10:
+                return True
